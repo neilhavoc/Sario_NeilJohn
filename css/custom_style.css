@@ -6,13 +6,19 @@
 
 body {
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
     background: #749F82;
 }
 
+.cnter{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
 .login {
+    
     width: 400px;
     height: min-content;
     padding: 20px;

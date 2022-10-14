@@ -3,6 +3,10 @@
 
   <body>
   
+
+
+<div class="cnter">
+
   <div class="login">
 
         <h1 class="text-center">ENROLLMENT SYSTEM</h1>
@@ -24,12 +28,15 @@
             </div>
             <div class="form-group form-check">
                 <input class="form-check-input" type="checkbox" id="check">
-                <label class="form-check-label" for="check">Remember me</label>
+                 
+                <label class="form-check-label" for="check">Remember me
+                     
+                </label>
             </div>
-            <input class="btn btn-success w-100" type="submit" value="SIGN IN">
+            <NuxtLink class="btn btn-success w-100" to="/Home">SIGN IN</NuxtLink>
         </form>
     </div>
-
+</div>
   </body>
 </template>
 
