@@ -2,41 +2,41 @@
 
 
   <body>
-  
-
-
-<div class="cnter">
-
-  <div class="login">
-
-        <h1 class="text-center">ENROLLMENT SYSTEM</h1>
-       
-        <form class="needs-validation">
-            <div class="form-group was-validated">
-                <label class="form-label" for="email">Email address</label>
-                <input class="form-control" type="email" id="email" required>
-                <div class="invalid-feedback">
-                    Please enter your email address
-                </div>
+    <section class="Form my-4 mx-5">
+      <div class="container">
+          <div class="row no-gutters">
+            <div class="col-lg-5">
+                <img src="imgs/dune.png" class="img-fluid" alt="">
             </div>
-            <div class="form-group was-validated">
-                <label class="form-label" for="password">Password</label>
-                <input class="form-control" type="password" id="password" required>
-                <div class="invalid-feedback">
-                    Please enter your password
-                </div>
+            <div class="col-lg-7 px-5 pt-5">
+                <h1 class="font-weight-bold py-3">House Atreides University</h1>
+                <h4>Sign in to your Account</h4>
+                <form>
+                  <div class="form-row">
+                    <div class="col-lg-7">
+                      <input class="form-control my-3 p-4" type="email" placeholder="Email Address" id="email">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-lg-7">
+                      <input class="form-control my-3 p-4" type="password" placeholder="Password" id="password">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-lg-7">
+                      <NuxtLink class="btn btn-success w-100" to="/Home">Login</NuxtLink>
+                    </div>
+                  </div>
+                  <a href="#">Forgot password</a>
+                  <p>Don't have an Account? <a href="#">Register Here</a></p>
+                </form>
             </div>
-            <div class="form-group form-check">
-                <input class="form-check-input" type="checkbox" id="check">
-                 
-                <label class="form-check-label" for="check">Remember me
-                     
-                </label>
-            </div>
-            <NuxtLink class="btn btn-success w-100" to="/Home">SIGN IN</NuxtLink>
-        </form>
-    </div>
-</div>
+          </div>
+      </div>
+    </section>
+
+
+
   </body>
 </template>
 

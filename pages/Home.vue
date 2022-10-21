@@ -1,6 +1,6 @@
 <template>
     <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand href="#"><b-button v-b-toggle.sidebar-backdrop class="btn btn-success">ENROLLMENT</b-button></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

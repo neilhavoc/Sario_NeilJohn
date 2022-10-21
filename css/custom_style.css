@@ -4,43 +4,33 @@
     box-sizing: border-box;
 }
 
-body {
-    height: 100vh;
-    
-    background: #749F82;
+
+body{
+    background: rgb(238, 238, 238);
 }
 
-.cnter{
-    display: flex;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
+.row{
+    background: white;
+    border-radius: 30px;
 }
 
-.login {
-    
-    width: 400px;
-    height: min-content;
-    padding: 20px;
-    border-radius: 12px;
-    background: #ffffff;
+img{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
-.login h1 {
-    font-size: 36px;
-    margin-bottom: 25px;
+.btn1{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
 }
 
-.login form {
-    font-size: 20px;
-}
 
-.login form .form-group {
-    margin-bottom: 12px;
-}
-
-.login form input[type="submit"] {
-    font-size: 20px;
-    margin-top: 15px;
-}
-
+.navbar.navbar-dark.bg-dark{
+    background-color: #1C6758!important;
+ }
