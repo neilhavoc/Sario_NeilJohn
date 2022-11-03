@@ -1,62 +1,77 @@
 <template>
-    <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand href="#"><b-button v-b-toggle.sidebar-backdrop class="btn btn-success">ENROLLMENT</b-button></b-navbar-brand>
-
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
-        
-      </b-navbar-nav>
-
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-        </b-nav-form>
-
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">EN</b-dropdown-item>
-          <b-dropdown-item href="#">ES</b-dropdown-item>
-          <b-dropdown-item href="#">RU</b-dropdown-item>
-          <b-dropdown-item href="#">FA</b-dropdown-item>
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown right>
-          <!-- Using 'button-content' slot -->
-          <template #button-content>
-            <em>User</em>
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#index.vue">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-
-    
-    <b-sidebar
-      id="sidebar-backdrop"
-      title="Home"
-      :backdrop-variant="variant"
-      backdrop
-      shadow
-    >
-      <div class="px-3 py-2">
-        <nav class="mb-3">
-            <b-nav vertical>
-              <b-nav-item href="#link-1" @click="hide">Home</b-nav-item>
-              <b-nav-item href="#link-2" @click="hide">Dashboard</b-nav-item>
-              <b-nav-item href="#link-2" @click="hide">Orders</b-nav-item>
-              <b-nav-item href="#link-2" @click="hide">Customers</b-nav-item>
-              <b-nav-item href="#link-2" @click="hide">Foods</b-nav-item>
-            </b-nav>
-          </nav>
-      </div>
-    </b-sidebar>
-    
-  </div>
-   
+  <body>
+    <MyNavbar/>
+    <section class="Form my-4 mx-5">
+    <div class="container">
+     <br>
+    <div class="form-inline" action="#">
+    <input type="text" id="form-name" v-model="item.name" placeholder="Name" class="form-control">
+    <input type="text" v-model="item.badgeID" placeholder="Badge ID" class="form-control" v-on:keyup.enter="addItem">
+    <input type="text" v-model="item.desc" placeholder="Designation" class="form-control" v-on:keyup.enter="addItem">
+    <button @click="addItem" class="btn btn-dark"><i>ADD</i></button>
+    </div>
+      
+    <br><br>
+    <table class="table table-striped table-bordered table-sm">
+      <thead class="thead-light">
+        <th>Name</th>
+        <th>Badge ID</th>
+        <th>Designation</th>
+        <th class="col-2">Edit/Del</th>
+      </thead>
+      <tr v-for="item in items" :key="item.name">
+        <td>
+          <input v-if="item.edit" type="text" v-model="item.name"  v-on:keyup.enter="item.edit = !item.edit">
+          <span v-else>{{item.name}} </span>
+        </td>
+        <td>
+          <input v-if="item.edit" type="text" v-model="item.badgeID" v-on:keyup.enter="item.edit = !item.edit">
+          <span v-else>{{item.badgeID}} </span>
+        </td>
+        <td>
+          <input v-if="item.edit" type="text" v-model="item.desc" v-on:keyup.enter="item.edit = !item.edit">
+          <span v-else>{{item.desc}} </span>
+        </td>
+        <td><button @click="item.edit = !item.edit" class="btn btn-info">EDIT</button>
+          <button @click="removeItem(index)" class="btn btn-danger">DELETE</button></td>
+      </tr>
+    </table>
+    </div>
+    </section>
+  </body>
 </template>
+
+<script>
+import MyNavbar from "~/components/MyNavBar.vue"
+  export default {
+    components: {
+      MyNavbar,
+     
+    },
+    data() {
+    return {
+      item: {name: "", badgeID:"", desc: "", edit: false},
+      items: []
+    }
+  },
+  methods:{
+    addItem() {
+      this.items.push({
+        name:this.item.name, badgeID:this.item.badgeID, desc:this.item.desc, edit: false}
+        );
+      this.item = [];
+      // eslint-disable-next-line no-undef
+     // ('#form-name').focus();
+    },
+    removeItem(index){
+      this.items.splice(index, 1)
+    }
+  }
+  }
+</script>
+
+<style scoped>
+.form-inline input {
+  margin-right:8px;
+}
+</style>
