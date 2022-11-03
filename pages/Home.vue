@@ -5,10 +5,10 @@
     <div class="container">
      <br>
     <div class="form-inline" action="#">
-    <input type="text" id="form-name" v-model="item.name" placeholder="Name" class="form-control">
-    <input type="text" v-model="item.badgeID" placeholder="Badge ID" class="form-control" v-on:keyup.enter="addItem">
-    <input type="text" v-model="item.desc" placeholder="Designation" class="form-control" v-on:keyup.enter="addItem">
-    <button @click="addItem" class="btn btn-dark"><i>ADD</i></button>
+    <input type="text" id="form-name" v-model="item.name" placeholder="Name" class="form-control" required>
+    <input type="text" v-model="item.badgeID" placeholder="Badge ID" class="form-control" v-on:keyup.enter="addDATA">
+    <input type="text" v-model="item.desc" placeholder="Designation" class="form-control" v-on:keyup.enter="addDATA">
+    <button @click="addDATA" class="btn btn-dark">ADD</button>
     </div>
       
     <br><br>
@@ -17,7 +17,7 @@
         <th>Name</th>
         <th>Badge ID</th>
         <th>Designation</th>
-        <th class="col-2">Edit/Del</th>
+        <th class="col-2">OPERATIONS</th>
       </thead>
       <tr v-for="item in items" :key="item.name">
         <td>
@@ -46,32 +46,38 @@ import MyNavbar from "~/components/MyNavBar.vue"
   export default {
     components: {
       MyNavbar,
-     
     },
     data() {
     return {
-      item: {name: "", badgeID:"", desc: "", edit: false},
+      item: {name: "", 
+      badgeID:"", 
+      desc: "", 
+      edit: false},
       items: []
     }
   },
   methods:{
-    addItem() {
+    addDATA() {
+      alert(JSON.stringify("New Record has been Added"))
       this.items.push({
-        name:this.item.name, badgeID:this.item.badgeID, desc:this.item.desc, edit: false}
+        name:this.item.name, 
+        badgeID:this.item.badgeID, 
+        desc:this.item.desc, 
+        edit: false}
         );
       this.item = [];
-      // eslint-disable-next-line no-undef
-     // ('#form-name').focus();
+      
     },
     removeItem(index){
       this.items.splice(index, 1)
+      alert(JSON.stringify("Record has been deleted"))
     }
   }
   }
 </script>
 
 <style scoped>
-.form-inline input {
-  margin-right:8px;
+.kg {
+  background-image: url("~static/imgs/DuneBackground.png");
 }
 </style>
