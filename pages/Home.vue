@@ -5,9 +5,9 @@
     <div class="container">
      <br>
     <div class="form-inline" action="#">
-    <input type="text" id="form-name" v-model="item.name" placeholder="Name" class="form-control" required>
-    <input type="text" v-model="item.badgeID" placeholder="Badge ID" class="form-control" v-on:keyup.enter="addDATA">
-    <input type="text" v-model="item.desc" placeholder="Designation" class="form-control" v-on:keyup.enter="addDATA">
+    <input type="text" id="form-name" v-model="record.name" placeholder="Name" class="form-control" required>
+    <input type="text" v-model="record.badgeID" placeholder="Badge ID" class="form-control" v-on:keyup.enter="addDATA">
+    <input type="text" v-model="record.desc" placeholder="Designation" class="form-control" v-on:keyup.enter="addDATA">
     <button @click="addDATA" class="btn btn-dark">ADD</button>
     </div>
       
@@ -19,20 +19,20 @@
         <th>Designation</th>
         <th class="col-2">OPERATIONS</th>
       </thead>
-      <tr v-for="item in items" :key="item.name">
+      <tr v-for="record in records" :key="record.name">
         <td>
-          <input v-if="item.edit" type="text" v-model="item.name"  v-on:keyup.enter="item.edit = !item.edit">
-          <span v-else>{{item.name}} </span>
+          <input v-if="record.edit" type="text" v-model="record.name"  v-on:keyup.enter="record.edit = !record.edit">
+          <span v-else>{{record.name}} </span>
         </td>
         <td>
-          <input v-if="item.edit" type="text" v-model="item.badgeID" v-on:keyup.enter="item.edit = !item.edit">
-          <span v-else>{{item.badgeID}} </span>
+          <input v-if="record.edit" type="text" v-model="record.badgeID" v-on:keyup.enter="record.edit = !record.edit">
+          <span v-else>{{record.badgeID}} </span>
         </td>
         <td>
-          <input v-if="item.edit" type="text" v-model="item.desc" v-on:keyup.enter="item.edit = !item.edit">
-          <span v-else>{{item.desc}} </span>
+          <input v-if="record.edit" type="text" v-model="record.desc" v-on:keyup.enter="record.edit = !record.edit">
+          <span v-else>{{record.desc}} </span>
         </td>
-        <td><button @click="item.edit = !item.edit" class="btn btn-info">EDIT</button>
+        <td><button @click="record.edit = !record.edit" class="btn btn-info">EDIT</button>
           <button @click="removeItem(index)" class="btn btn-danger">DELETE</button></td>
       </tr>
     </table>
@@ -49,27 +49,27 @@ import MyNavbar from "~/components/MyNavBar.vue"
     },
     data() {
     return {
-      item: {name: "", 
+      record: {
+      name: "", 
       badgeID:"", 
       desc: "", 
       edit: false},
-      items: []
+      records: []
     }
   },
   methods:{
     addDATA() {
-      alert(JSON.stringify("New Record has been Added"))
-      this.items.push({
-        name:this.item.name, 
-        badgeID:this.item.badgeID, 
-        desc:this.item.desc, 
+      this.records.push({
+        name:this.record.name, 
+        badgeID:this.record.badgeID, 
+        desc:this.record.desc, 
         edit: false}
         );
-      this.item = [];
+      this.record = [];
       
     },
     removeItem(index){
-      this.items.splice(index, 1)
+      this.records.splice(index, 1)
       alert(JSON.stringify("Record has been deleted"))
     }
   }
