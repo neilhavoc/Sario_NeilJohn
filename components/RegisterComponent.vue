@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container" style="padding: 4rem; margin-left:250px">
+    <div class="container item" style="padding: 4rem; margin-left:250px">
       <div>
       <h3>Register Students</h3>
       <hr>

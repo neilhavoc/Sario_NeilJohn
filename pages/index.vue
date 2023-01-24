@@ -1,7 +1,5 @@
 <template>
 
-
-  <body>
     <section class="Form my-4 mx-5">
       <div class="container">
           <div class="row no-gutters">
@@ -14,34 +12,38 @@
                 <form>
                   <div class="form-row">
                     <div class="col-lg-7">
-                      <input class="form-control my-3 p-4" type="email" placeholder="Email Address" id="email">
+                    
+                    <input class="form-control my-3 p-4" v-model="Email" id="Email" type="email" placeholder="Email Address/Username" name="email" />
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="col-lg-7">
-                      <input class="form-control my-3 p-4" type="password" placeholder="Password" id="password">
+                      <input class="form-control my-3 p-4"  v-model="Password" id="Password" type="password" placeholder="Password" name="password" />
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="col-lg-7">
-                      <NuxtLink class="btn btn-success w-100" to="/Home">Login</NuxtLink>
+                      <NuxtLink id="Login"  class="btn btn-success w-100" to="/Home">Login</NuxtLink>
                     </div>
                   </div>
                   <a href="#">Forgot password</a>
-                  <p>Don't have an Account? <a href="#">Register Here</a></p>
+                  <p>Don't have an Account? <NuxtLink to="/index">Register Here</NuxtLink></p>
                 </form>
             </div>
           </div>
       </div>
     </section>
 
-
-
-  </body>
 </template>
 
 <script>
 export default {
   name: 'IndexPage',
+  data(){
+    return{
+      Username: "",
+      Password: ""
+    }
+  }
 }
 </script>
