@@ -6,7 +6,7 @@
       <div class="container">
           <div class="row no-gutters">
             <div class="col-lg-5">
-                <img src="imgs/dune.png" class="img-fluid" alt="">
+                <img src="imgs/LogoAtreides.png" class="img-fluid" alt="">
             </div>
             <div class="col-lg-7 px-5 pt-5">
                 <h1 class="font-weight-bold py-3">House Atreides University</h1>
