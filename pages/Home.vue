@@ -1,8 +1,8 @@
 <template>
-  <body>
+ <div>
     <MyNavbar/>
     <RegisterComponent/>
-  </body>
+ </div>
 </template>
 
 <script>
